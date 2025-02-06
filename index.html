@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="js/settings-svg-button.mjs"></script>
+    <script type="module" src="js/edit-svg-button.mjs"></script>
+    <script type="module" src="js/resize-svg-button.mjs"></script>
+    <title>SVG Buttons Demo</title>
+
+    <style>
+      :root {
+        color-scheme: dark light;
+      }
+
+      .buttons > * {
+        width: 3em;
+        height: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <settings-svg-button></settings-svg-button>
+      <edit-svg-button></edit-svg-button>
+      <resize-svg-button></resize-svg-button>
+    </div>
+    <!-- <settings-svg-button
+      aria-label="Open application settings"
+    ></settings-svg-button> -->
+  </body>
+</html>

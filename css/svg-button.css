@@ -1,0 +1,33 @@
+:host {
+  --highlight-color: var(
+    --svg-button-highlight-color,
+    color-mix(in srgb, currentColor 25%, transparent)
+  );
+
+  display: inline-block;
+  border-radius: 20%;
+  padding: 0.5em;
+}
+
+:host(:hover) {
+  background-color: var(--highlight-color);
+}
+
+:host(:focus) {
+  outline: 1px solid var(--highlight-color);
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
