@@ -19,6 +19,7 @@ class SvgButton extends HTMLElement {
     try {
       await this.loadCss();
       await this.loadSvg();
+      this.updateButtonAriaLabel();
     } catch (error) {
       console.error("Error during component initialization:", error);
     }
@@ -58,11 +59,13 @@ class SvgButton extends HTMLElement {
       }
 
       const svgContent = await response.text();
-      this.button.innerHTML = svgContent;
-      this.button.setAttribute(
-        "aria-label",
-        this.ariaLabel || SvgButtonClass.buttonAriaLabel || "Generic Button"
-      );
+      const svgElement = new DOMParser().parseFromString(
+        svgContent,
+        "image/svg+xml"
+      ).documentElement;
+      svgElement.setAttribute("aria-hidden", "true");
+      this.button.innerHTML = svgElement.outerHTML;
+
       this.button.removeAttribute("aria-busy");
     } catch (error) {
       console.error(
@@ -96,20 +99,17 @@ class SvgButton extends HTMLElement {
     }
   }
 
+  private updateButtonAriaLabel() {
+    this.button.setAttribute("aria-label", this.buttonAriaLabel);
+  }
+
   attributeChangedCallback(
     name: string,
     oldValue: string | null,
     newValue: string | null
   ) {
     if (name === "button-aria-label") {
-      console.log(newValue, this.button.ariaLabel);
-      this.button.setAttribute(
-        "aria-label",
-        newValue ||
-          (this.constructor as typeof SvgButton).buttonAriaLabel ||
-          "Generic Button"
-      );
-      console.log(newValue, this.button.ariaLabel);
+      this.updateButtonAriaLabel();
     }
   }
 }

@@ -9,6 +9,7 @@ declare class SvgButton extends HTMLElement {
     loadSvg(): Promise<void>;
     get buttonAriaLabel(): string;
     set buttonAriaLabel(value: string | null);
+    private updateButtonAriaLabel;
     attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null): void;
 }
 export default SvgButton;
