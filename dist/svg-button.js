@@ -56,14 +56,13 @@ class SvgButton extends HTMLElement {
         catch (error) {
             console.error(`${this.constructor.name}: Failed to load SVG from ${SvgButtonClass.svgFilePath}`, error);
             this.button.innerHTML = "X";
-            this.button.setAttribute("aria-label", `Error loading SVG icon: ${SvgButtonClass.buttonAriaLabel || "Generic Button"}`); // Update aria-label for error
+            this.button.setAttribute("aria-label", `Error loading SVG icon: ${SvgButtonClass.buttonAriaLabel}`); // Update aria-label for error
             this.button.removeAttribute("aria-busy");
         }
     }
     get buttonAriaLabel() {
         return (this.getAttribute("button-aria-label") ||
-            this.constructor.buttonAriaLabel ||
-            "Generic Button");
+            this.constructor.buttonAriaLabel);
     }
     set buttonAriaLabel(value) {
         if (value == null) {

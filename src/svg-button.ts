@@ -75,9 +75,7 @@ class SvgButton extends HTMLElement {
       this.button.innerHTML = "X";
       this.button.setAttribute(
         "aria-label",
-        `Error loading SVG icon: ${
-          SvgButtonClass.buttonAriaLabel || "Generic Button"
-        }`
+        `Error loading SVG icon: ${SvgButtonClass.buttonAriaLabel}`
       ); // Update aria-label for error
       this.button.removeAttribute("aria-busy");
     }
@@ -86,8 +84,7 @@ class SvgButton extends HTMLElement {
   get buttonAriaLabel(): string {
     return (
       this.getAttribute("button-aria-label") ||
-      (this.constructor as typeof SvgButton).buttonAriaLabel ||
-      "Generic Button"
+      (this.constructor as typeof SvgButton).buttonAriaLabel
     );
   }
 
