@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="js/settings-svg-button.mjs"></script>
-    <script type="module" src="js/edit-svg-button.mjs"></script>
-    <script type="module" src="js/resize-svg-button.mjs"></script>
+    <script type="module" src="dist/settings-svg-button.js"></script>
+    <script type="module" src="dist/edit-svg-button.js"></script>
+    <script type="module" src="dist/resize-svg-button.js"></script>
     <title>SVG Buttons Demo</title>
 
     <style>
@@ -24,9 +24,9 @@
       <settings-svg-button></settings-svg-button>
       <edit-svg-button></edit-svg-button>
       <resize-svg-button></resize-svg-button>
+      <settings-svg-button
+        button-aria-label="Open application settings"
+      ></settings-svg-button>
     </div>
-    <!-- <settings-svg-button
-      aria-label="Open application settings"
-    ></settings-svg-button> -->
   </body>
 </html>
