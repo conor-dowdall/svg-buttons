@@ -13,6 +13,10 @@
   background-color: var(--hover-color);
 }
 
+:host([pressed]) > button {
+  border-bottom: 0.2em solid currentcolor;
+}
+
 button {
   width: 100%;
   height: 100%;

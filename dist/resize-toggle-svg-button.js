@@ -5,4 +5,4 @@ class ResizeToggleSvgButton extends ToggleSvgButton {
 }
 customElements.define("resize-toggle-svg-button", ResizeToggleSvgButton);
 export default ResizeToggleSvgButton;
-//# sourceMappingURL=resize-svg-button.js.map
+//# sourceMappingURL=resize-toggle-svg-button.js.map

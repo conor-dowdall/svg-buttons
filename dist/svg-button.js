@@ -24,9 +24,8 @@ class SvgButton extends HTMLElement {
     async loadCss() {
         try {
             const response = await fetch("../css/svg-button.css"); // Fetch CSS file
-            if (!response.ok) {
+            if (!response.ok)
                 throw new Error(`HTTP error! status: ${response.status} fetching CSS`);
-            }
             const cssText = await response.text();
             await buttonStyles.replace(cssText); // Asynchronously replace stylesheet content
         }
@@ -42,22 +41,17 @@ class SvgButton extends HTMLElement {
             return;
         }
         try {
-            this.button.setAttribute("aria-busy", "true"); // Indicate busy state for accessibility
             const response = await fetch(svgFilePath);
-            if (!response.ok) {
+            if (!response.ok)
                 throw new Error(`HTTP error! status: ${response.status} fetching SVG`);
-            }
             const svgContent = await response.text();
             const svgElement = new DOMParser().parseFromString(svgContent, "image/svg+xml").documentElement;
             svgElement.setAttribute("aria-hidden", "true");
             this.button.innerHTML = svgElement.outerHTML;
-            this.button.removeAttribute("aria-busy");
         }
         catch (error) {
             console.error(`${this.constructor.name}: Failed to load SVG from ${SvgButtonClass.svgFilePath}`, error);
             this.button.innerHTML = "X";
-            this.button.setAttribute("aria-label", `Error loading SVG icon: ${SvgButtonClass.buttonAriaLabel}`); // Update aria-label for error
-            this.button.removeAttribute("aria-busy");
         }
     }
     get buttonAriaLabel() {

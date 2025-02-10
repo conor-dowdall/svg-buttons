@@ -4,4 +4,4 @@ declare class ResizeToggleSvgButton extends ToggleSvgButton {
     static buttonAriaLabel: string;
 }
 export default ResizeToggleSvgButton;
-//# sourceMappingURL=resize-svg-button.d.ts.map
+//# sourceMappingURL=resize-toggle-svg-button.d.ts.map
