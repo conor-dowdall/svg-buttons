@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="dist/settings-svg-button.js"></script>
-    <script type="module" src="dist/edit-svg-button.js"></script>
     <script type="module" src="dist/resize-toggle-svg-button.js"></script>
+    <script type="module" src="dist/edit-svg-button.js"></script>
+    <script type="module" src="dist/close-svg-button.js"></script>
     <title>SVG Buttons Demo</title>
 
     <style>
@@ -13,20 +14,62 @@
         color-scheme: dark light;
       }
 
-      .buttons > * {
-        width: 3em;
-        height: 3em;
+      .buttons {
+        display: flex;
+        gap: 1em;
+
+        > * {
+          width: 3em;
+          height: 3em;
+        }
+      }
+      pre {
+        width: fit-content;
+        padding: 0.5em 2em;
+        border: 0.15em solid currentColor;
+        border-radius: 1em;
       }
     </style>
   </head>
   <body>
+    <h2>SVG Buttons</h2>
     <div class="buttons">
       <settings-svg-button></settings-svg-button>
       <edit-svg-button></edit-svg-button>
-      <resize-toggle-svg-button></resize-toggle-svg-button>
-      <settings-svg-button
-        button-aria-label="App Settings"
-      ></settings-svg-button>
+      <close-svg-button></close-svg-button>
     </div>
+    <pre><code>
+&lt;settings-svg-button&gt;&lt;/settings-svg-button&gt;
+&lt;edit-svg-button&gt;&lt;/edit-svg-button&gt;
+&lt;close-svg-button&gt;&lt;/close-svg-button&gt;
+      </code></pre>
+    <h2>SVG Buttons | Updated Aria Label</h2>
+    <div class="buttons">
+      <settings-svg-button
+        button-aria-label="My App Settings"
+      ></settings-svg-button>
+      <edit-svg-button
+        button-aria-label="Edit Something Specific"
+      ></edit-svg-button>
+      <close-svg-button button-aria-label="Close Me!"></close-svg-button>
+    </div>
+    <pre><code>
+&lt;settings-svg-button
+  button-aria-label="My App Settings"
+&gt;&lt;/settings-svg-button&gt;
+&lt;edit-svg-button
+  button-aria-label="Edit Something Specific"
+&gt;&lt;/edit-svg-button&gt;
+&lt;close-svg-button
+  button-aria-label="Close Me!"
+&gt;&lt;/close-svg-button&gt;
+    </code></pre>
+    <h2>SVG Toggle Buttons</h2>
+    <div class="buttons">
+      <resize-toggle-svg-button></resize-toggle-svg-button>
+    </div>
+    <pre><code>
+&lt;resize-toggle-svg-button&gt;&lt;/resize-toggle-svg-button&gt;
+    </code></pre>
   </body>
 </html>
