@@ -28,7 +28,7 @@ class SvgButton extends HTMLElement {
 
   async loadCss() {
     try {
-      const response = await fetch("../css/svg-button.css"); // Fetch CSS file
+      const response = await fetch("/css/svg-button.css"); // Fetch CSS file
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status} fetching CSS`);
 
