@@ -34,7 +34,8 @@ class SvgButton extends HTMLElement {
         throw new Error(`HTTP error! status: ${response.status} fetching CSS`);
 
       const cssText = await response.text();
-      await buttonStyles.replace(cssText); // Asynchronously replace stylesheet content
+      buttonStyles.replaceSync(cssText); // Asynchronously replace stylesheet content
+      // await buttonStyles.replace(cssText); // Asynchronously replace stylesheet content
     } catch (error) {
       console.error("Failed to load CSS file", error);
     }
