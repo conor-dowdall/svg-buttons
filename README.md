@@ -2,6 +2,10 @@
 
 A collection of customizable SVG-based web components that provide accessible button controls with consistent styling and behavior. Built using Google Material Icons for consistent, high-quality SVG button graphics.
 
+## Demo
+
+Try out the live demo at [https://conor-dowdall.github.io/svg-buttons/](https://conor-dowdall.github.io/svg-buttons/)
+
 ## Features
 
 - Lightweight SVG buttons using Google Material Icons
