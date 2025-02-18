@@ -1,0 +1,59 @@
+{
+  "name": "svg-buttons",
+  "version": "0.1.0",
+  "description": "A set of accessible and customizable web components: SvgButton and ToggleSvgButton. Create visually appealing icon buttons using SVG, styled with CSS, and built for accessibility.",
+  "main": "dist/svg-button.js",
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "npx tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conor-dowdall/svg-buttons.git"
+  },
+  "keywords": [
+    "Web",
+    "components",
+    "for",
+    "SVG",
+    "icon",
+    "buttons",
+    "toggle",
+    "buttons",
+    "accessible",
+    "buttons",
+    "custom",
+    "elements",
+    "icon",
+    "button",
+    "component",
+    "TypeScript",
+    "javascript",
+    "button",
+    "html",
+    "button",
+    "css",
+    "styling",
+    "UI",
+    "components",
+    "front-end",
+    "web",
+    "development.",
+    "Includes",
+    "SvgButton",
+    "and",
+    "ToggleSvgButton",
+    "components."
+  ],
+  "author": "Conor Dowdall",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "types": "./dist/svg-button.d.ts",
+  "bugs": {
+    "url": "https://github.com/conor-dowdall/svg-buttons/issues"
+  },
+  "homepage": "https://github.com/conor-dowdall/svg-buttons#readme",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
