@@ -1,4 +1,5 @@
 const buttonStyles = new CSSStyleSheet();
+let cssLoaded = false;
 
 class SvgButton extends HTMLElement {
   button: HTMLButtonElement;
@@ -27,6 +28,8 @@ class SvgButton extends HTMLElement {
   }
 
   async loadCss() {
+    if (cssLoaded) return;
+
     try {
       const cssUrl = new URL("../css/svg-button.css", import.meta.url).href;
       const response = await fetch(cssUrl);
@@ -35,7 +38,7 @@ class SvgButton extends HTMLElement {
 
       const cssText = await response.text();
       buttonStyles.replaceSync(cssText); // Synchronously replace stylesheet content
-      // await buttonStyles.replace(cssText); // Asynchronously replace stylesheet content
+      cssLoaded = true;
     } catch (error) {
       console.error("Failed to load CSS file", error);
     }
