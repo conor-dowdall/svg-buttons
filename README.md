@@ -46,34 +46,6 @@ You can customize the button labels for accessibility:
 }
 ```
 
-## Requirements
-
-- TypeScript compiler (`tsc`) installed globally
-
-```bash
-sudo npm install -g typescript
-```
-
-## Installation
-
-1. Clone the repository
-
-```sh
-git clone conor-dowdall/svg-buttons
-```
-
-2. Build using tsc (outputs to dist/)
-
-```sh
-tsc
-```
-
-For development with auto-rebuilding
-
-```bash
-tsc --watch
-```
-
 ## Usage
 
 Import the components you need:
