@@ -1,0 +1,41 @@
+name: Deploy GitHub Pages Demo
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies (if needed)
+        run: npm install
+
+      - name: Build demo
+        run: npm run build
+
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p public  # Create a 'public' directory as deployment root
+          cp index.html public/ # Copy index.html to the root of deployment
+          cp -r dist public/dist # Copy the entire 'docs/dist' folder to 'public/dist'
+          cp -r css public/css # Copy the entire 'docs/css' folder to 'public/css' (if you use a separate css folder)
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          folder: public # Deploy the 'public' directory to GitHub Pages
