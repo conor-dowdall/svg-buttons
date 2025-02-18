@@ -1,7 +1,7 @@
 {
   "name": "svg-buttons",
   "version": "0.1.0",
-  "description": "A set of accessible and customizable web components: SvgButton and ToggleSvgButton. Create visually appealing icon buttons using SVG, styled with CSS, and built for accessibility.",
+  "description": "A set of accessible and customizable web components: SvgButton and ToggleSvgButton. Visually appealing icon buttons using SVGs from Google Icons, styled with CSS, and built for accessibility.",
   "main": "dist/svg-button.js",
   "scripts": {
     "build": "npx tsc",
