@@ -1,5 +1,5 @@
 const buttonStyles = new CSSStyleSheet();
-let cssLoaded = false;
+let cssLoadingPromise: Promise<void> | null = null; // Track loading promise
 
 class SvgButton extends HTMLElement {
   button: HTMLButtonElement;
@@ -28,20 +28,24 @@ class SvgButton extends HTMLElement {
   }
 
   async loadCss() {
-    if (cssLoaded) return;
-
     try {
-      const cssUrl = new URL("../css/svg-button.css", import.meta.url).href;
-      const response = await fetch(cssUrl);
-      if (!response.ok)
-        throw new Error(`HTTP error! status: ${response.status} fetching CSS`);
-
-      const cssText = await response.text();
-      buttonStyles.replaceSync(cssText); // Synchronously replace stylesheet content
-      cssLoaded = true;
+      if (!cssLoadingPromise) {
+        cssLoadingPromise = this.loadCssFile();
+      }
+      await cssLoadingPromise;
     } catch (error) {
       console.error("Failed to load CSS file", error);
     }
+  }
+
+  private async loadCssFile(): Promise<void> {
+    const cssUrl = new URL("../css/svg-button.css", import.meta.url).href;
+    const response = await fetch(cssUrl);
+    if (!response.ok)
+      throw new Error(`HTTP error! status: ${response.status} fetching CSS`);
+
+    const cssText = await response.text();
+    buttonStyles.replaceSync(cssText);
   }
 
   async loadSvg() {
