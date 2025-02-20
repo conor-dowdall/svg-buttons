@@ -102,8 +102,8 @@ class SvgButton extends HTMLElement {
 
   attributeChangedCallback(
     name: string,
-    oldValue: string | null,
-    newValue: string | null
+    _oldValue: string | null,
+    _newValue: string | null
   ) {
     if (name === "button-aria-label") {
       this.updateButtonAriaLabel();

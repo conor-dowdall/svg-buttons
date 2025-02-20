@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "dev": "npx tsc -w",
+    "lint": "eslint src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -54,6 +55,10 @@
   },
   "homepage": "https://github.com/conor-dowdall/svg-buttons#readme",
   "devDependencies": {
-    "typescript": "^5.7.3"
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.1",
+    "globals": "^16.0.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
   }
 }

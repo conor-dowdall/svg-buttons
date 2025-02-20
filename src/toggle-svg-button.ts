@@ -13,7 +13,7 @@ class ToggleSvgButton extends SvgButton {
 
       this.updateAriaPressedAttribute();
 
-      this.button.addEventListener("click", (e) => {
+      this.button.addEventListener("click", () => {
         this.pressed = !this.pressed;
       });
     } catch (error) {

@@ -16,12 +16,30 @@
         color-scheme: dark light;
       }
 
+      body {
+        min-height: 100vh;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          150deg,
+          rgb(47, 19, 138) 0%,
+          rgb(5, 2, 63) 15%,
+          rgba(9, 9, 121, 1) 75%,
+          rgb(47, 19, 138) 100%
+        );
+      }
+
       section {
-        margin-bottom: 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 1.5em;
+        margin: 3em 1em;
+        background-color: rgba(68, 68, 68, 0.2);
       }
 
       .buttons {
         display: flex;
+        justify-content: center;
         gap: 1em;
 
         > * {
@@ -31,6 +49,7 @@
       }
 
       pre {
+        text-align: left;
         width: fit-content;
         padding: 0.5em 2em;
         border: 0.15em solid currentColor;
@@ -67,26 +86,28 @@
         </code></pre>
     </section>
 
-    <h2>SVG Buttons | Updated Aria Label</h2>
-    <div class="buttons">
-      <settings-svg-button
+    <section>
+      <h2>SVG Buttons | Updated Aria Label</h2>
+      <div class="buttons">
+        <settings-svg-button
+          button-aria-label="My App Settings"
+        ></settings-svg-button>
+        <edit-svg-button
+          button-aria-label="Edit Something Specific"
+        ></edit-svg-button>
+        <close-svg-button button-aria-label="Close Me!"></close-svg-button>
+      </div>
+      <pre><code>
+      &lt;settings-svg-button
         button-aria-label="My App Settings"
-      ></settings-svg-button>
-      <edit-svg-button
+      &gt;&lt;/settings-svg-button&gt;
+      &lt;edit-svg-button
         button-aria-label="Edit Something Specific"
-      ></edit-svg-button>
-      <close-svg-button button-aria-label="Close Me!"></close-svg-button>
-    </div>
-    <pre><code>
-&lt;settings-svg-button
-  button-aria-label="My App Settings"
-&gt;&lt;/settings-svg-button&gt;
-&lt;edit-svg-button
-  button-aria-label="Edit Something Specific"
-&gt;&lt;/edit-svg-button&gt;
-&lt;close-svg-button
-  button-aria-label="Close Me!"
-&gt;&lt;/close-svg-button&gt;
-    </code></pre>
+      &gt;&lt;/edit-svg-button&gt;
+      &lt;close-svg-button
+        button-aria-label="Close Me!"
+      &gt;&lt;/close-svg-button&gt;
+      </code></pre>
+    </section>
   </body>
 </html>
