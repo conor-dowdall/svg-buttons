@@ -35,10 +35,13 @@
         border-radius: 1.5em;
         margin: 3em 1em;
         background-color: rgba(68, 68, 68, 0.2);
+        max-width: 80ch;
+        min-width: fit-content;
       }
 
       .buttons {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 1em;
 
@@ -52,8 +55,6 @@
         text-align: left;
         width: fit-content;
         padding: 0.5em 2em;
-        border: 0.15em solid currentColor;
-        border-radius: 1em;
       }
     </style>
   </head>
@@ -98,15 +99,15 @@
         <close-svg-button button-aria-label="Close Me!"></close-svg-button>
       </div>
       <pre><code>
-      &lt;settings-svg-button
-        button-aria-label="My App Settings"
-      &gt;&lt;/settings-svg-button&gt;
-      &lt;edit-svg-button
-        button-aria-label="Edit Something Specific"
-      &gt;&lt;/edit-svg-button&gt;
-      &lt;close-svg-button
-        button-aria-label="Close Me!"
-      &gt;&lt;/close-svg-button&gt;
+&lt;settings-svg-button
+  button-aria-label="My App Settings"
+&gt;&lt;/settings-svg-button&gt;
+&lt;edit-svg-button
+  button-aria-label="Edit Something Specific"
+&gt;&lt;/edit-svg-button&gt;
+&lt;close-svg-button
+  button-aria-label="Close Me!"
+&gt;&lt;/close-svg-button&gt;
       </code></pre>
     </section>
   </body>
