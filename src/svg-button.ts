@@ -1,11 +1,31 @@
 const buttonStyles = new CSSStyleSheet();
 let cssLoadingPromise: Promise<void> | null = null; // Track loading promise
 
+/**
+ * Base class for SVG-based button web components.
+ * Provides shared functionality for loading and displaying SVG icons with proper accessibility.
+ *
+ * @example
+ * ```ts
+ * class SettingsSvgButton extends SvgButton {
+ *   static svgFilePath = "../icons/settings.svg";
+ *   static buttonAriaLabel = "Settings";
+ * }
+ * customElements.define("settings-svg-button", SettingsSvgButton);
+ * export default SettingsSvgButton;
+ * ```
+ */
 class SvgButton extends HTMLElement {
+  /** Internal button element that holds the SVG icon */
   button: HTMLButtonElement;
 
+  /** Path to the SVG icon file, must be defined by subclasses */
   static svgFilePath: string | undefined;
+
+  /** Default ARIA label for the button, can be overridden by attributes */
   static buttonAriaLabel: string = "Generic Button";
+
+  /** List of attributes that trigger callback when changed */
   static observedAttributes = ["button-aria-label"];
 
   constructor() {
@@ -16,6 +36,10 @@ class SvgButton extends HTMLElement {
     this.shadowRoot!.adoptedStyleSheets = [buttonStyles]; // Apply the stylesheet object
   }
 
+  /**
+   * Lifecycle callback when element is connected to the DOM.
+   * Loads CSS and SVG resources, then updates accessibility labels.
+   */
   async connectedCallback() {
     try {
       await this.loadCss();
@@ -27,6 +51,10 @@ class SvgButton extends HTMLElement {
     }
   }
 
+  /**
+   * Loads shared CSS styles if not already loaded.
+   * Uses a Promise to prevent multiple simultaneous loads.
+   */
   async loadCss() {
     try {
       if (!cssLoadingPromise) {
@@ -38,6 +66,10 @@ class SvgButton extends HTMLElement {
     }
   }
 
+  /**
+   * Fetches and applies the CSS file to the shared stylesheet.
+   * @returns Promise that resolves when CSS is loaded and applied
+   */
   private async loadCssFile(): Promise<void> {
     const cssUrl = new URL("../css/svg-button.css", import.meta.url).href;
     const response = await fetch(cssUrl);
@@ -48,6 +80,10 @@ class SvgButton extends HTMLElement {
     buttonStyles.replaceSync(cssText);
   }
 
+  /**
+   * Loads and displays the SVG icon for this button.
+   * Uses the static svgFilePath defined by the subclass.
+   */
   async loadSvg() {
     const SvgButtonClass = this.constructor as typeof SvgButton;
     const svgFilePath = SvgButtonClass.svgFilePath;
@@ -70,7 +106,6 @@ class SvgButton extends HTMLElement {
         svgContent,
         "image/svg+xml"
       ).documentElement;
-      svgElement.setAttribute("aria-hidden", "true");
       this.button.innerHTML = svgElement.outerHTML;
     } catch (error) {
       console.error(
@@ -81,6 +116,10 @@ class SvgButton extends HTMLElement {
     }
   }
 
+  /**
+   * Gets the current ARIA label for the button.
+   * Returns either the attribute value or the static default.
+   */
   get buttonAriaLabel(): string {
     return (
       this.getAttribute("button-aria-label") ||
@@ -88,6 +127,10 @@ class SvgButton extends HTMLElement {
     );
   }
 
+  /**
+   * Sets the ARIA label for the button.
+   * @param value - New label text, or null to remove custom label
+   */
   set buttonAriaLabel(value: string | null) {
     if (value == null) {
       this.removeAttribute("button-aria-label");
@@ -96,10 +139,20 @@ class SvgButton extends HTMLElement {
     }
   }
 
+  /**
+   * Updates the button's aria-label attribute based on current state.
+   * Called when the button-aria-label attribute changes.
+   */
   protected updateButtonAriaLabel() {
     this.button.setAttribute("aria-label", this.buttonAriaLabel);
   }
 
+  /**
+   * Lifecycle callback for attribute changes.
+   * @param name - Name of changed attribute
+   * @param _oldValue - Previous value of attribute
+   * @param _newValue - New value of attribute
+   */
   attributeChangedCallback(
     name: string,
     _oldValue: string | null,
