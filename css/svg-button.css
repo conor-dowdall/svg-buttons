@@ -9,6 +9,8 @@
     color-mix(in srgb, currentColor 40%, transparent)
   );
 
+  --_internal-padding: var(--svg-button-internal-padding, 0.3em);
+
   display: inline-block;
 }
 
@@ -26,7 +28,7 @@ button {
   background: none;
   border: none;
   border-radius: 20%;
-  padding: 0.2em;
+  padding: var(--_internal-padding);
 }
 
 svg {
