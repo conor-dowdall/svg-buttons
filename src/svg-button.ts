@@ -1,5 +1,9 @@
 const buttonStyles = new CSSStyleSheet();
-let cssLoadingPromise: Promise<void> | null = null; // Track loading promise
+
+/** @internal Promise that resolves when the CSS is loaded.
+ * The same CSS is used for all SvgButtons, hence outside the class
+ */
+let cssLoadingPromise: Promise<void> | null = null;
 
 /**
  * Base class for SVG-based button web components.
@@ -44,13 +48,11 @@ class SvgButton extends HTMLElement {
     try {
       await this.loadCss();
       await this.loadSvg();
-
       this.updateButtonAriaLabel();
     } catch (error) {
       console.error("Error during component initialization:", error);
     }
   }
-
   /**
    * Loads shared CSS styles if not already loaded.
    * Uses a Promise to prevent multiple simultaneous loads.
@@ -77,14 +79,14 @@ class SvgButton extends HTMLElement {
       throw new Error(`HTTP error! status: ${response.status} fetching CSS`);
 
     const cssText = await response.text();
-    buttonStyles.replaceSync(cssText);
+    buttonStyles.replace(cssText);
   }
 
   /**
    * Loads and displays the SVG icon for this button.
    * Uses the static svgFilePath defined by the subclass.
    */
-  async loadSvg() {
+  private async loadSvg() {
     const SvgButtonClass = this.constructor as typeof SvgButton;
     const svgFilePath = SvgButtonClass.svgFilePath;
 
@@ -98,6 +100,7 @@ class SvgButton extends HTMLElement {
     try {
       const svgUrl = new URL(svgFilePath, import.meta.url).href;
       const response = await fetch(svgUrl);
+
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status} fetching SVG`);
 
@@ -106,6 +109,9 @@ class SvgButton extends HTMLElement {
         svgContent,
         "image/svg+xml"
       ).documentElement;
+
+      svgElement.setAttribute("aria-hidden", "true");
+
       this.button.innerHTML = svgElement.outerHTML;
     } catch (error) {
       console.error(
