@@ -6,7 +6,7 @@
 
   --_pressed-color: var(
     --svg-button-pressed-color,
-    color-mix(in srgb, currentColor 40%, transparent)
+    color-mix(in srgb, currentColor 30%, transparent)
   );
 
   --_internal-padding: var(--svg-button-internal-padding, 0.3em);
@@ -17,11 +17,6 @@
 :host(:hover) > button {
   background-color: var(--_hover-color);
 }
-
-/* :host([pressed]) > button,
-:host(:active) > button {
-  background-color: var(--_pressed-color);
-} */
 
 :host([pressed]),
 :host(:active) {
