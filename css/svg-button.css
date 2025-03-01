@@ -18,9 +18,16 @@
   background-color: var(--_hover-color);
 }
 
-:host([pressed]) > button,
+/* :host([pressed]) > button,
 :host(:active) > button {
   background-color: var(--_pressed-color);
+} */
+
+:host([pressed]),
+:host(:active) {
+  & > button {
+    background-color: var(--_pressed-color);
+  }
 }
 
 button {
