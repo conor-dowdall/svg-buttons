@@ -56,8 +56,11 @@ You can customize the button labels for accessibility:
 Import the components you need:
 
 ```html
-<script type="module" src="dist/settings-svg-button.js"></script>
-<script type="module" src="dist/resize-toggle-svg-button.js"></script>
+<script type="module" src="dist/svg-buttons/settings-svg-button.js"></script>
+<script
+  type="module"
+  src="dist/svg-buttons/resize-toggle-svg-button.js"
+></script>
 ```
 
 ## Development
