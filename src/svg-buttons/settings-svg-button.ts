@@ -1,4 +1,4 @@
-import SvgButton from "./svg-button.js";
+import SvgButton from "../svg-button.js";
 
 class SettingsSvgButton extends SvgButton {
   static svgFilePath =

@@ -1,4 +1,4 @@
-import ToggleSvgButton from "./toggle-svg-button.js";
+import ToggleSvgButton from "../toggle-svg-button.js";
 
 class ResizeToggleSvgButton extends ToggleSvgButton {
   static svgFilePath =
