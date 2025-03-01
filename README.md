@@ -47,6 +47,7 @@ You can customize the button labels for accessibility:
 :root {
   --svg-button-hover-color: rgba(255, 255, 255, 0.2);
   --svg-button-pressed-color: rgba(255, 255, 255, 0.4);
+  --svg-button-internal-padding: 0.3em;
 }
 ```
 
