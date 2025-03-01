@@ -33,7 +33,7 @@
         flex-direction: column;
         align-items: center;
         border-radius: 1.5em;
-        margin: 3em 1em;
+        margin: 3em auto;
         background-color: rgba(68, 68, 68, 0.2);
         max-width: 80ch;
         min-width: fit-content;
@@ -59,56 +59,62 @@
     </style>
   </head>
   <body>
-    <section>
-      <h2>SVG Buttons</h2>
-      <div class="buttons">
-        <settings-svg-button></settings-svg-button>
-        <edit-svg-button></edit-svg-button>
-        <close-svg-button></close-svg-button>
-        <palette-svg-button></palette-svg-button>
-        <save-svg-button></save-svg-button>
-      </div>
-      <pre><code>
+    <main>
+      <section>
+        <h2>SVG Buttons</h2>
+        <div class="buttons">
+          <settings-svg-button></settings-svg-button>
+          <edit-svg-button></edit-svg-button>
+          <close-svg-button></close-svg-button>
+          <palette-svg-button></palette-svg-button>
+          <save-svg-button></save-svg-button>
+        </div>
+        <pre><code>
 &lt;settings-svg-button&gt;&lt;/settings-svg-button&gt;
+
 &lt;edit-svg-button&gt;&lt;/edit-svg-button&gt;
+
 &lt;close-svg-button&gt;&lt;/close-svg-button&gt;
+
 &lt;palette-svg-button&gt;&lt;/palette-svg-button&gt;
+
 &lt;save-svg-button&gt;&lt;/save-svg-button&gt;
-        </code></pre>
-    </section>
-
-    <section>
-      <h2>SVG Toggle Buttons</h2>
-      <div class="buttons">
-        <resize-toggle-svg-button></resize-toggle-svg-button>
-      </div>
-      <pre><code>
+          </code></pre>
+      </section>
+      <section>
+        <h2>SVG Toggle Buttons</h2>
+        <div class="buttons">
+          <resize-toggle-svg-button></resize-toggle-svg-button>
+        </div>
+        <pre><code>
 &lt;resize-toggle-svg-button&gt;&lt;/resize-toggle-svg-button&gt;
-        </code></pre>
-    </section>
-
-    <section>
-      <h2>SVG Buttons | Updated Aria Label</h2>
-      <div class="buttons">
-        <settings-svg-button
-          button-aria-label="My App Settings"
-        ></settings-svg-button>
-        <edit-svg-button
-          button-aria-label="Edit Something Specific"
-        ></edit-svg-button>
-        <close-svg-button button-aria-label="Close Me!"></close-svg-button>
-      </div>
-      <pre><code>
+          </code></pre>
+      </section>
+      <section>
+        <h2>SVG Buttons | Updated Aria Label</h2>
+        <div class="buttons">
+          <settings-svg-button
+            button-aria-label="My App Settings"
+          ></settings-svg-button>
+          <edit-svg-button
+            button-aria-label="Edit Something Specific"
+          ></edit-svg-button>
+          <close-svg-button button-aria-label="Close Me!"></close-svg-button>
+        </div>
+        <pre><code>
 &lt;settings-svg-button
-  button-aria-label="My App Settings"
+ button-aria-label="My App Settings"
 &gt;&lt;/settings-svg-button&gt;
+
 &lt;edit-svg-button
-  button-aria-label="Edit Something Specific"
+ button-aria-label="Edit Something Specific"
 &gt;&lt;/edit-svg-button&gt;
+
 &lt;close-svg-button
-  button-aria-label="Close Me!"
+ button-aria-label="Close Me!"
 &gt;&lt;/close-svg-button&gt;
-      </code></pre>
-    </section>
+        </code></pre>
+      </section>
+    </main>
   </body>
 </html>
