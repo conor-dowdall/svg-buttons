@@ -5,9 +5,7 @@
   "main": "dist/svg-button.js",
   "scripts": {
     "build": "npx tsc",
-    "dev": "npx tsc -w",
-    "lint": "eslint src/**/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx tsc -w"
   },
   "repository": {
     "type": "git",
@@ -16,49 +14,17 @@
   "keywords": [
     "Web",
     "components",
-    "for",
     "SVG",
     "icon",
     "buttons",
     "toggle",
-    "buttons",
-    "accessible",
-    "buttons",
-    "custom",
-    "elements",
-    "icon",
-    "button",
-    "component",
-    "TypeScript",
-    "javascript",
-    "button",
-    "html",
-    "button",
-    "css",
-    "styling",
-    "UI",
-    "components",
-    "front-end",
-    "web",
-    "development.",
-    "Includes",
-    "SvgButton",
-    "and",
-    "ToggleSvgButton",
-    "components."
+    "icon"
   ],
   "author": "Conor Dowdall",
   "license": "SEE LICENSE IN LICENSE.txt",
   "types": "./dist/svg-button.d.ts",
-  "bugs": {
-    "url": "https://github.com/conor-dowdall/svg-buttons/issues"
-  },
   "homepage": "https://github.com/conor-dowdall/svg-buttons#readme",
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
-    "eslint": "^9.20.1",
-    "globals": "^16.0.0",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.24.1"
+    "typescript": "^5.7.3"
   }
 }
