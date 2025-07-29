@@ -1,0 +1,30 @@
+{
+  "name": "svg-buttons",
+  "version": "1.0.0",
+  "description": "A set of accessible and customizable web components: SvgButton and ToggleSvgButton. Visually appealing icon buttons using SVGs from Google Icons, styled with CSS, and built for accessibility.",
+  "main": "dist/svg-button.js",
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "npx tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conor-dowdall/svg-buttons.git"
+  },
+  "keywords": [
+    "Web",
+    "components",
+    "SVG",
+    "icon",
+    "buttons",
+    "toggle",
+    "icon"
+  ],
+  "author": "Conor Dowdall",
+  "license": "SEE LICENSE IN LICENSE text file",
+  "types": "./dist/svg-button.d.ts",
+  "homepage": "https://github.com/conor-dowdall/svg-buttons#readme",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

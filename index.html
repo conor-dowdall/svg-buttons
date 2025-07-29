@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="dist/svg-buttons/settings-svg-button.js"
+    ></script>
+    <script
+      type="module"
+      src="dist/svg-buttons/resize-toggle-svg-button.js"
+    ></script>
+    <script type="module" src="dist/svg-buttons/close-svg-button.js"></script>
+    <script type="module" src="dist/svg-buttons/edit-svg-button.js"></script>
+    <script type="module" src="dist/svg-buttons/palette-svg-button.js"></script>
+    <script type="module" src="dist/svg-buttons/save-svg-button.js"></script>
+    <title>SVG Buttons Demo</title>
+
+    <style>
+      :root {
+        color-scheme: dark light;
+        --light-mode-gradient: linear-gradient(
+          150deg,
+          rgb(167, 158, 196) 0%,
+          rgb(217, 217, 226) 15%,
+          rgb(163, 163, 238) 75%,
+          rgb(205, 190, 255) 100%
+        );
+        --dark-mode-gradient: linear-gradient(
+          150deg,
+          rgb(47, 19, 138) 0%,
+          rgb(5, 2, 63) 15%,
+          rgba(9, 9, 121, 1) 75%,
+          rgb(47, 19, 138) 100%
+        );
+        --current-background: var(--dark-mode-gradient);
+      }
+
+      /* Dark mode preference */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --current-background: var(--dark-mode-gradient);
+        }
+      }
+
+      /* Light mode preference */
+      @media (prefers-color-scheme: light) {
+        :root {
+          --current-background: var(--light-mode-gradient);
+        }
+      }
+
+      body {
+        min-height: 100vh;
+        background: rgb(2, 0, 36);
+        background: var(--current-background);
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 1.5em;
+        margin: 3em auto;
+        background-color: rgba(68, 68, 68, 0.2);
+        max-width: 80ch;
+        overflow-x: auto;
+      }
+
+      h2 {
+        text-wrap: balance;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+
+        > * {
+          width: 3em;
+          height: 3em;
+        }
+      }
+
+      pre {
+        text-align: left;
+        width: fit-content;
+        padding: 0.5em 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2>SVG Buttons</h2>
+        <div class="buttons">
+          <settings-svg-button></settings-svg-button>
+          <edit-svg-button></edit-svg-button>
+          <close-svg-button></close-svg-button>
+          <palette-svg-button></palette-svg-button>
+          <save-svg-button></save-svg-button>
+        </div>
+        <pre><code>
+&lt;settings-svg-button&gt;&lt;/settings-svg-button&gt;
+
+&lt;edit-svg-button&gt;&lt;/edit-svg-button&gt;
+
+&lt;close-svg-button&gt;&lt;/close-svg-button&gt;
+
+&lt;palette-svg-button&gt;&lt;/palette-svg-button&gt;
+
+&lt;save-svg-button&gt;&lt;/save-svg-button&gt;
+          </code></pre>
+      </section>
+      <section>
+        <h2>SVG Toggle Buttons</h2>
+        <div class="buttons">
+          <resize-toggle-svg-button></resize-toggle-svg-button>
+        </div>
+        <pre><code>
+&lt;resize-toggle-svg-button&gt;&lt;/resize-toggle-svg-button&gt;
+          </code></pre>
+      </section>
+      <section>
+        <h2>SVG Buttons | Updated Aria Label</h2>
+        <div class="buttons">
+          <settings-svg-button
+            button-aria-label="My App Settings"
+          ></settings-svg-button>
+          <edit-svg-button
+            button-aria-label="Edit Something Specific"
+          ></edit-svg-button>
+          <close-svg-button button-aria-label="Close Me!"></close-svg-button>
+        </div>
+        <pre><code>
+&lt;settings-svg-button
+ button-aria-label="My App Settings"
+&gt;&lt;/settings-svg-button&gt;
+
+&lt;edit-svg-button
+ button-aria-label="Edit Something Specific"
+&gt;&lt;/edit-svg-button&gt;
+
+&lt;close-svg-button
+ button-aria-label="Close Me!"
+&gt;&lt;/close-svg-button&gt;
+        </code></pre>
+      </section>
+    </main>
+  </body>
+</html>
